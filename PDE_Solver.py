@@ -1,6 +1,6 @@
 # PDE Solver using Finite Difference Method
 # Solves: u_xx - u_yy - (1/y)*u_y = 0
-# Domain: 0 < x < a, -b < y < b
+# Domain: 0 < x < a, -b < y < b we used a=2 and b=1
 # BCs: u(0,0)=A, du/dx(0,0)=B, lim(y->0)[(1/y)du/dy]=x^2
 # Derived BCs for FDM:
 #   u(x, -b) = analytical(x, -b)
