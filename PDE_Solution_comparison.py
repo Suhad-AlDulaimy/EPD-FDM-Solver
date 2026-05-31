@@ -19,6 +19,7 @@ a = 2.0  # Domain limit for x
 b = 1.0  # Domain limit for y
 A = 1.0  # Boundary condition u(0,0)
 B = 1.0  # Boundary condition du/dx(0,0)
+mu = 1.0  # EPD equation parameter (this study uses mu=1)
 
 Nx = 20  # Number of intervals in x -> Nx+1 points
 Ny = 21 # Number of points in y (MUST BE ODD for y=0 to be a grid line)
