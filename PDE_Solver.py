@@ -1,13 +1,17 @@
-# PDE Solver using Finite Difference Method
+# ==============================================================================
+# Finite Difference Method (FDM) Solver for the Euler-Poisson-Darboux Equation
 # Solves: u_xx - u_yy - (1/y)*u_y = 0
-# Domain: 0 < x < a, -b < y < b we used a=2 and b=1
-# BCs: u(0,0)=A, du/dx(0,0)=B, lim(y->0)[(1/y)du/dy]=x^2
-# Derived BCs for FDM:
-#   u(x, -b) = analytical(x, -b)
-#   u(x, b) = analytical(x, b)
-#   u(a, y) = analytical(a, y)
-#   du/dx(0, y) = B (Neumann)
-#   Singularity at y=0 handled via: u(x, 0) = u(x, dy) - x^2 * dy^2 / 2
+# Domain: 0 < x < a, -b < y < b (Implemented with a=2.0, b=1.0)
+#
+# Boundary Conditions:
+#   - Dirichlet margins: u(x, -b), u(x, b), and u(a, y) match analytical values
+#   - Neumann margin: du/dx(0, y) = B (Implemented using central differences)
+#
+# Singularity Handling at y=0:
+#   - Evaluated via lim(y->0) [1/y * du/dy] = x^2
+#   - Discretized using even symmetry u(x, -dy) = u(x, dy) and L'Hopital's rule
+#   - Yields the matrix stencil relation: u_{i, j_mid} - u_{i, j_mid+1} = -x_i^2 * dy^2 / 2
+# ==============================================================================
 
 import numpy as np
 import matplotlib.pyplot as plt
