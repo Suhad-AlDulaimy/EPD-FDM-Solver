@@ -26,6 +26,7 @@ B = 0.0  # Boundary condition du/dx(0,0)
 
 Nx = 20  # Number of intervals in x -> Nx+1 points
 Ny = 21 # Number of points in y (MUST BE ODD for y=0 to be a grid line)
+mu = 1.0  # EPD equation parameter (this study uses mu=1)
 
 dx = a / Nx
 dy = 2 * b / (Ny - 1)
@@ -96,9 +97,9 @@ for i in range(Nx): # 0 to Nx-1 (unknown columns)
             coef_x_pp = 1.0 / dx**2
             coef_x_0 = -2.0 / dx**2
             coef_x_mm = 1.0 / dx**2
-            coef_y_pp = -1.0 / dy**2 - 1.0 / (y[j] * 2 * dy)
+            coef_y_pp = -1.0 / dy**2 - mu / (y[j] * 2 * dy)
             coef_y_0 = 2.0 / dy**2
-            coef_y_mm = -1.0 / dy**2 + 1.0 / (y[j] * 2 * dy)
+            coef_y_mm = -1.0 / dy**2 + mu / (y[j] * 2 * dy)
 
             # --- Handle x=0 Neumann Boundary (i=0) ---
             if i == 0:
