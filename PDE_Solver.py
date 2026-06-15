@@ -265,7 +265,7 @@ print(f"Saved {plot_filename}")
 plt.close()
 
 print("\n" + "=" * 60)
-print("MASTER SCRIPT COMPLETED SUCCESSFULLY")
+print("All the generated files")
 print("=" * 60)
 print("\nGenerated Files:")
 print("  - EPD_solution_10x11.png")
