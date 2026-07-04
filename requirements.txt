@@ -1,2 +1,6 @@
+//We recommend to make a virtual environment and install all the requirments
 numpy
 matplotlib
+pandas
+scipy
+mpl_toolkits
