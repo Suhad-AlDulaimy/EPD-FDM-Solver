@@ -1,5 +1,5 @@
 """
-Master EPD Solver Script (Revised)
+Master EPD Solver Script 
 ===================================
 Solves the Euler-Poisson-Darboux (EPD) equation:
     u_xx - u_yy - (mu/y)*u_y = 0
@@ -198,7 +198,7 @@ def solve_epd_master(Nx, Ny, report_condition=False):
     # --- Assemble and Solve ---
     M = csr_matrix((data, (rows, cols)), shape=(total_unknowns, total_unknowns))
     
-    # Condition number reporting (optional, expensive for large matrices)
+    # Condition number reporting 
     cond_num = None
     if report_condition:
         try:
@@ -258,7 +258,7 @@ if __name__ == "__main__":
         print(f"{'─' * 50}")
         
         start = time.time()
-        # Report condition number only for the smallest grid (expensive operation)
+        # Report condition number only for the smallest grid 
         report_cond = (idx == 0)
         max_err, avg_err, U_num, U_an, x_coords, y_coords, cond_num = solve_epd_master(nx, ny, report_condition=report_cond)
         elapsed = time.time() - start
